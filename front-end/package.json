@@ -1,0 +1,31 @@
+{
+  "name": "open-source-raffle-frontend",
+  "version": "1.0.0",
+  "description": "The open source raffle frontend",
+    "scripts": {
+      "dev": "next",
+      "build": "next build",
+      "start": "next start"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreddyJD/open-source-raffle.git"
+  },
+  "keywords": [
+    "open",
+    "source",
+    "raffle",
+    "frontend"
+  ],
+  "author": "github - @freddyjd, @waharrison and @ouggi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FreddyJD/open-source-raffle/issues"
+  },
+  "homepage": "https://github.com/FreddyJD/open-source-raffle#readme",
+  "dependencies": {
+    "next": "^8.0.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  }
+}
