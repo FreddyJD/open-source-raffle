@@ -1,0 +1,5 @@
+/front-end/node_modules/*
+/front-end/node_module/*
+/back-end/node_modules/*
+/back-end/node_module/*
+
