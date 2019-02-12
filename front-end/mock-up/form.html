@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Raffle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
+        rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Raffle</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="index.html">Seller</a>
+                    <a class="nav-item nav-link" href="#">Buyer</a>
+                </div>
+            </div> <a class="btn btn-primary" href="#">Sign In</a>
+        </div>
+    </nav>
+
+
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="img/formpage.png" alt="Form Image">
+              </div>
+          </div>
+    <div class="container">
+        <div class="sellerSection">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>
+                                <i class="fa fa-id-card"></i> Seller Section</strong>
+                        </div>
+                        <div class="card-body" id="article-section">
+                            <div class="form-group">
+                                <label for="sellerData">Name</label>
+                                <input type="text" class="form-control" id="nameInput" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="sellerData">Email</label>
+                                <input type="email" class="form-control" id="emailInput" placeholder="jonDoe@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="sellerData">Password</label>
+                                <input type="text" class="form-control" id="passwordInput" placeholder="Enter Password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="raffleSection">
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <strong>
+                            <i class="fa fa-road"></i> Raffle Section</strong>
+                    </div>
+                    <div class="card-body" id="article-section">
+                        <div class="form-group">
+                            <label for="raffleData">Product Name</label>
+                            <input type="text" class="form-control" id="productNameInput" placeholder="Product name">
+                        </div>
+                        <div class="form-group">
+                            <label for="raffleData">Picture (url)</label>
+                            <input type="url" class="form-control" id="pictureInput" placeholder="Picture URL">
+                        </div>
+                        <div class="form-group">
+                            <label for="raffleData">Description</label>
+                            <textarea class="form-control" rows="5" id="descriptionInput"
+                                placeholder="Describe the product"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="raffleData">Price</label>
+                            <input type="integer" class="form-control" id="priceInput"
+                                placeholder="How much do you want to sell it for?">
+                        </div>
+                        <div class="form-group">
+                            <label for="raffleData">Ticket Offering</label>
+                            <input type="integer" class="form-control" id="ticketMaxInput"
+                                placeholder="How many tickets do you want to offer?">
+                        </div>
+                        <div class="form-group">
+                            <label for="raffleData">Minimum Tickets for Raffle to Run?</label>
+                            <input type="integer" class="form-control" id="ticketMinInput"
+                                placeholder="How many tickets have to be sold for the Raffle to run?">
+                        </div>
+                        <div class="form-group">
+                            <label for="raffleData">Raffle Days</label>
+                            <input type="integer" class="form-control" id="raffleDayInput"
+                                placeholder="How many days do you want the Raffle to be offered?">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitButton">
+                            <i class="fa fa-submit"></i> Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <footer class="footer bg-light">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                  <ul class="list-inline mb-2">
+                    <li class="list-inline-item">
+                      <a href="#">About</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                      <a href="#">Contact</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                      <a href="#">Terms of Use</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                      <a href="#">Privacy Policy</a>
+                    </li>
+                  </ul>
+                  <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                      <a href="#">
+                        <i class="fab fa-facebook fa-2x fa-fw"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                      <a href="#">
+                        <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#">
+                        <i class="fab fa-instagram fa-2x fa-fw"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+</body>
+
+</html>
