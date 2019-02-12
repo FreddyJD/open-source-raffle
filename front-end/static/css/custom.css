@@ -1,0 +1,14 @@
+
+.hosted { 
+    position: relative;
+    color: #fff; 
+    font-size: 18px;
+    font-weight: 500;
+    background: rgb(0, 140, 255); 
+    padding: 10px 10px; 
+    text-decoration: none;
+    width : 300px;
+    margin : auto;
+    top: -23%;
+    transform: rotate(-2deg)
+}
