@@ -2,11 +2,11 @@
   "name": "open-source-raffle-frontend",
   "version": "1.0.0",
   "description": "The open source raffle frontend",
-    "scripts": {
-      "dev": "next",
-      "build": "next build",
-      "start": "next start"
-    },
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "next start"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FreddyJD/open-source-raffle.git"
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/FreddyJD/open-source-raffle#readme",
   "dependencies": {
+    "antd": "^3.13.2",
+    "cross-fetch": "^3.0.1",
     "next": "^8.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"

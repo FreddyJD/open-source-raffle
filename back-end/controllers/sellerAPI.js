@@ -9,35 +9,53 @@ const { prisma } = require('../generated/prisma-client')
 
 module.exports = (app) => {
 
-    app.post('/api/seller/login', async (req, res) => { 
+    app.post('/api/seller/login', async(req, res) => { 
 
-        const checkSeller = prisma.$exists.seller({ email: req.body.email });
+        const email_account = req.body.email
 
+        console.log('We got it')
+        console.log(req.body.email);
+
+        const checkSeller = await prisma.$exists.seller({ email: email_account });
+        console.log(checkSeller);
     
 
-        if (!checkSeller === null) {
+        if (!checkSeller === false) {
 
-            // Here we need to check if the password match 
-            const getUser = await prisma.seller({ email: req.body.email });
+                
+                // Here we need to check if the password match 
+                const getUser = await prisma.sellers({ 
 
-            if (getUser.password === req.body.password) { 
+                    where: {
+                        email: email_account,
+                      }
+                });
 
-                // later we will redirect them to the dashboard page 
-                // send JSON file with all the raffles that they have 
-                console.log('Welcome dude')
-                res.json(getUser); 
+                console.log(getUser);
 
-            } else { 
-                console.log('Wrong password!')
-            }
-
-
+                
+                if (getUser[0].password === req.body.password) { 
+                    
+                    // later we will redirect them to the dashboard page 
+                    // send JSON file with all the raffles that they have 
+                    console.log('Welcome dude')
+                    res.json({ 
+                        "status": 200,
+                        "email": getUser.email, 
+                    }); 
+                    
+                } else { 
+                    res.status(404)
+                }
+                
         } else { 
            console.log('user not found!')
+           res.status(404)
+
         }
     }); 
 
-    app.post('/api/seller/regiser', (req, res) => { 
+    app.post('/api/seller/regiser', async (req, res) => { 
            
             // convinience variable 
             const rBody = req.body;

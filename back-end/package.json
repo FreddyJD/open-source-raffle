@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/FreddyJD/open-source-raffle#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "cron": "^1.6.0",
     "express": "^4.16.4",
     "passport-local": "^1.0.0",

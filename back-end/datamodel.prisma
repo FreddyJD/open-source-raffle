@@ -4,10 +4,10 @@ type Raffle {
   picture: String!
   desc:  String
   daysLeft: Float! 
-  ticketsSold: Float!
+  ticketsSold: Float
   numTickets: Float!
   minTickets: Float! 
-  active: Boolean! 
+  active: Boolean
   winner: String
   # ticketPrice: Float! 
   # participants: [User]
