@@ -1,7 +1,10 @@
 const express = require("express");
+var cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+app.use(cors())
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -12,8 +15,8 @@ require('./models/dbCron');
 
 // API routes 
 require('./controllers/raffleAPI')(app);
-// User API route
-// Seller API route
+require('./controllers/sellerAPI')(app);
+
 
 
 app.listen(PORT, function() {

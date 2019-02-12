@@ -32,7 +32,7 @@ module.exports = (app) => {
             desc: rBody.desc, 
             daysLeft: rBody.days,
             numTickets: rBody.numTickets,
-            minTickets: rBody.minTickets,  
+            minTickets: rBody.minTickets,
         });
 
         console.log(`➕ Added a new raffle into DB  ${newRaffle} `)

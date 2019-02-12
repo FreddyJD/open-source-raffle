@@ -74,10 +74,10 @@ type Raffle {
   picture: String!
   desc: String
   daysLeft: Float!
-  ticketsSold: Float!
+  ticketsSold: Float
   numTickets: Float!
   minTickets: Float!
-  active: Boolean!
+  active: Boolean
   winner: String
 }
 
@@ -92,10 +92,10 @@ input RaffleCreateInput {
   picture: String!
   desc: String
   daysLeft: Float!
-  ticketsSold: Float!
+  ticketsSold: Float
   numTickets: Float!
   minTickets: Float!
-  active: Boolean!
+  active: Boolean
   winner: String
 }
 
@@ -137,10 +137,10 @@ type RafflePreviousValues {
   picture: String!
   desc: String
   daysLeft: Float!
-  ticketsSold: Float!
+  ticketsSold: Float
   numTickets: Float!
   minTickets: Float!
-  active: Boolean!
+  active: Boolean
   winner: String
 }
 

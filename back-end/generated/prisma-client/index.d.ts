@@ -526,10 +526,10 @@ export interface RaffleCreateInput {
   picture: String;
   desc?: String;
   daysLeft: Float;
-  ticketsSold: Float;
+  ticketsSold?: Float;
   numTickets: Float;
   minTickets: Float;
-  active: Boolean;
+  active?: Boolean;
   winner?: String;
 }
 
@@ -812,10 +812,10 @@ export interface RafflePreviousValues {
   picture: String;
   desc?: String;
   daysLeft: Float;
-  ticketsSold: Float;
+  ticketsSold?: Float;
   numTickets: Float;
   minTickets: Float;
-  active: Boolean;
+  active?: Boolean;
   winner?: String;
 }
 
@@ -905,10 +905,10 @@ export interface Raffle {
   picture: String;
   desc?: String;
   daysLeft: Float;
-  ticketsSold: Float;
+  ticketsSold?: Float;
   numTickets: Float;
   minTickets: Float;
-  active: Boolean;
+  active?: Boolean;
   winner?: String;
 }
 
