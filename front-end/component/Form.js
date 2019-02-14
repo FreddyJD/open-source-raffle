@@ -40,14 +40,14 @@ class FormTest extends Component {
       "numTickets": this.state.numTickets,
       "minTickets": this.state.minTickets
     };
-    // const fetchURL = await fetch('http://localhost:8080/api/raffle/create', {
-    //   method: 'POST',
-    //   body: JSON.stringify(userData),
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
+    const fetchURL = await fetch('http://localhost:8080/api/raffle/create', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
 
     this.name.value = "";
     this.picture.value = "";
