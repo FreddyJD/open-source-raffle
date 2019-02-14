@@ -9,10 +9,7 @@ export default class Footer extends Component {
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <ul class="list-inline">
-                                <li> <a><span class="h6 type--uppercase"><p>home</p> </span></a> </li>
-                                <li> <a><span class="h6 type--uppercase"><p>dashboard</p> </span></a> </li>
-                                <li> <a><span class="h6 type--uppercase"><p>Developer Tools </p> </span></a> </li>
-                                <li> <a><span class="h6 type--uppercase"><p>raffles</p> </span></a> </li>
+                                <li> <a><span class="h6 type--uppercase"><p>© 2019 FIAAE inc. All rights reserved</p> </span></a> </li>
                             </ul>
                         </div>
                     </div>

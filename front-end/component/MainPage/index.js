@@ -24,21 +24,52 @@ class HeadContainer extends Component {
           </div>
         </section>
 
-      <section className="fdb-block">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-12 col-md-6 mb-4 mb-md-0">
-      
-            <img alt="image" className="img-fluid" src="/static/assets/img/smile.svg" />
+        <section className="fdb-block">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-12 col-md-6 mb-4 mb-md-0">
+
+                <img alt="image" className="img-fluid" src="/static/assets/img/raffle.png" />
+              </div>
+              <div className="col-12 col-md-6 col-lg-5 ml-md-auto text-left">
+                <h1>About Raffles</h1>
+                <p className="lead">
+                  <p>raf·fle</p>
+                  <p>ˈrafəl</p>
+                  a means of raising money by selling numbered tickets, one or some of which are subsequently drawn at random, the holder or holders of such tickets winning a prize.
+</p>
+              </div>
+            </div>
           </div>
-          <div className="col-12 col-md-6 col-lg-5 ml-md-auto text-left">
-            <h1>Froala Blocks</h1>
-            <p className="lead">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-            <p><a className="btn btn-secondary mt-4" href="https://www.froala.com">Download</a></p>
+        </section>
+
+        <section className="team db-block team-2">
+          <div className="container">
+            <div className="row text-center justify-content-center">
+              <div className="col-8">
+                <h1>Meet Our Team</h1>
+              </div>
+            </div>
+
+            <div className="row-50"></div>
+
+            <div className="row text-center justify-content-center">
+              <div className="col-sm-3 m-sm-auto">
+                <img alt="image" className="img-fluid rounded-circle" src="/static/assets/img/ceo.png" />
+
+                <h2>W. Harrison</h2>
+              </div>
+              <div className="col-sm-3 m-sm-auto">
+                <img alt="image" className="img-fluid rounded-circle" src="/static/assets/img/cto.png" />
+                <h2>F. Diaz</h2>
+              </div>
+              <div className="col-sm-3 m-sm-auto">
+                <img alt="image" className="img-fluid rounded-circle" src="/static/assets/img/coo.png" />
+                <h2>B. Wiggins</h2>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
       </>
     );

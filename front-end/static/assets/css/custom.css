@@ -1,14 +1,31 @@
 
 .hosted { 
     position: relative;
-    color: #BFC0C0; 
+    color: rgb(221, 221, 221); 
     font-size: 18px;
     font-weight: 500;
-    background: rgb(0, 76, 255); 
     padding: 10px 10px; 
     text-decoration: none;
     width : 300px;
     margin : auto;
     top: -23%;
-    transform: rotate(-2deg)
+    transform: rotate(-5deg);
+    border-radius: 5px;
+    background:
+
+	linear-gradient(
+		-45deg,
+		#0e52f2,
+		transparent
+	),
+	linear-gradient(
+		45deg,
+		#fc203a,
+		transparent
+	);
+background-blend-mode: multiply;
+}
+
+.team {
+    background: rgb(168, 168, 168);
 }

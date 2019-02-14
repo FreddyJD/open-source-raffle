@@ -13,16 +13,18 @@ const Navbar = ({ isLoggedIn }) => (
                 <div className="bar__module">
                   <ul className="menu-horizontal text-left">
                     <li>
-                      <a>🏡 Home </a> 
+                      <Link href="/">
+                      <a> Home </a> 
+                      </Link>
                     </li>
                     <li>
-                      <a>👨‍💻 API Docs</a>
+                      <a> API Docs</a>
                     </li>
                     <li>
-                      <a>🚀 Active Raffles </a>
+                      <a> Active Raffles </a>
                     </li>
                     <li>
-                      <a>✅ Github </a>
+                      <a> Github </a>
                     </li>
                   </ul>
                 </div>
@@ -30,7 +32,7 @@ const Navbar = ({ isLoggedIn }) => (
               <div className="col-md-6 text-right text-left-xs text-left-sm">
                 <div className="bar__module">
                   <a className="btn btn--sm type--uppercase">
-                  { isLoggedIn ? ( <Link href="/dashboard"><a>Dashboard</a></Link> ) : ( <Link href="/login"><a>Login</a></Link> ) }
+                  { isLoggedIn ? ( <Link href="/dashboard">Dashboard</Link> ) : ( <Link href="/login">Login</Link> ) }
                   </a>
                 </div>
               </div>
