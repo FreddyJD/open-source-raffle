@@ -1,4 +1,6 @@
+/back-end/node_module/*
 /front-end/node_modules/*
 /back-end/node_modules/*
 /front-end/.next/*
 /front-end/node_modules/*
+/front-end/mock-up/
