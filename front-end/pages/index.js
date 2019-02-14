@@ -4,7 +4,7 @@ import MainPage from '../component/MainPage';
 import PropTypes from 'prop-types';
 import template from '../static/template';
 
-const Index = ({ isLoggedIn }) => (
+const Index = () => (
     <>
        <MainPage />
     </>
