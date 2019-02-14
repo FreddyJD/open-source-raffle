@@ -1,24 +1,15 @@
-import React, { Component } from 'react';
-import Header from '../component/Header'
-import Navbar from '../component/Navbar'
-import Footer from '../component/Footer'
+import SecureTemplate from '../static/secure-template';
+import PropTypes from 'prop-types';
 import User from '../component/User';
 
-class Dashboard extends Component {
-    render() {
-        return (
-            <>
-            <Header />
-            <Navbar />
-            <User />
-            {/* This is a temporary fix to the styling :(  */}
-            <br/><br/><br/><br/><br/><br/><br/>
-            {/* This is a temporary fix to the styling :(  */}
+const Dashboard = ({ loggedInUser }) => (
+  <>
+    <User data={loggedInUser} />
+  </>
+)
+Dashboard.propTypes = {
+  loggedInUser: PropTypes.object
+};
 
-            <Footer />
-            </>
-        );
-    }
-}
 
-export default Dashboard;
+export default SecureTemplate(Dashboard);

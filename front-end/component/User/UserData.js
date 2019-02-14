@@ -7,11 +7,11 @@ export default class UserData extends Component {
         <div class="text-block text-center">
           <img
             alt="avatar"
-            src="/static/assets/img/ceo.png"
+            src={this.props.passedData.picture}
             class="image--sm"
           />
 
-          <span class="h5">Lucas Banks</span>
+          <span class="h5">{this.props.passedData.family_name}, {this.props.passedData.given_name}</span>
           <span>Active Seller Account </span>
           <span class="label">Seller</span>
         </div>

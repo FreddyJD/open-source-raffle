@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
-import Header from '../component/Header'
-import Navbar from '../component/Navbar'
-import Footer from '../component/Footer'
+import React from 'react';
 import MainPage from '../component/MainPage';
 
-class index extends Component {
-    render() {
-        return (
-            <>
-            <Header />
-            <Navbar />
-            <MainPage />
-            <Footer />
-            </>
-        );
-    }
-}
+import PropTypes from 'prop-types';
+import template from '../static/template';
 
-export default index;
+const Index = () => (
+    <>
+       <MainPage />
+    </>
+  );
+
+
+  Index.propTypes = {
+    isLoggedIn: PropTypes.bool
+  }
+  export default template(Index);
