@@ -30,7 +30,7 @@ module.exports = (app) => {
             name: rBody.name,
             picture: rBody.picture, 
             desc: rBody.desc, 
-            daysLeft: rBody.days,
+            daysLeft: rBody.daysLeft,
             numTickets: rBody.numTickets,
             minTickets: rBody.minTickets,
         });
