@@ -11,13 +11,13 @@ export default class User extends Component {
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="boxed boxed--lg boxed--border">
-                                <UserData/>
+                                <UserData />
                             </div>
                         </div>
 
                         <div class="col-lg-8">
                             <div class="boxed boxed--lg boxed--border">
-                                <RafflesData/>
+                                <RafflesData />
                             </div>
                         </div>
                     </div>
