@@ -35,11 +35,15 @@ class FormTest extends Component {
       "name": this.state.fullName,
       "picture": this.state.picture,
       "desc": this.state.desc,
-      "daysLeft": this.state.daysLeft,
-      "numTickets": this.state.numTickets,
-      "minTickets": this.state.minTickets
+      "daysLeft": parseFloat(this.state.daysLeft),
+      "numTickets": parseFloat(this.state.numTickets),
+      "minTickets": parseFloat(this.state.minTickets)
+
     };
-    const fetchURL = await fetch('http://localhost:8080/api/raffle/create', {
+    console.log(typeof userData.daysLeft)
+    console.log(typeof userData.numTickets)
+    
+    await fetch('http://localhost:8080/api/raffle/create', {
       method: 'POST',
       body: JSON.stringify(userData),
       headers: {
@@ -54,11 +58,13 @@ class FormTest extends Component {
     this.daysLeft.value = "";
     this.numTickets.value = "";
     this.minTickets.value = "";
+
     console.log(userData)
   }
   render() {
     return (
       <Container>
+
         <Card bg="light" style={{ padding: "40px" }}>
           <Card body>
             <Form onSubmit={this.handleSubmit}>
@@ -114,6 +120,7 @@ class FormTest extends Component {
             </Form>
           </Card>
         </Card>
+
       </Container>
     )
   }
