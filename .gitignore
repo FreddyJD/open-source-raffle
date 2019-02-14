@@ -3,5 +3,7 @@
 /back-end/node_modules/*
 /back-end/node_module/*
 mock-up
+/front-end/pages/test.js
+
 
 
