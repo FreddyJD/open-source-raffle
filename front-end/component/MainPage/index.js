@@ -4,10 +4,7 @@ class HeadContainer extends Component {
   render() {
     return (
       <>
-        <section
-          className="imagebg text-center height-80"
-          data-gradient-bg="#5f2c82,#49a09d,#F3A183,#5f2c82"
-        >
+        <section>
           <div className="background-image-holder">
             <img alt="background" src="/static/assets/img/main.png" />
           </div>

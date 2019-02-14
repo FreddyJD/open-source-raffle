@@ -4,12 +4,12 @@ export default class Footer extends Component {
   render() {
     return (
         <>
-        <footer class="text-center-xs space--xs bg--secondary">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <ul class="list-inline">
-                                <li> <a><span class="h6 type--uppercase"><p>© 2019 FIAAE inc. All rights reserved</p> </span></a> </li>
+        <footer className="text-center-xs space--xs bg--secondary">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                            <ul className="list-inline">
+                                <li> <a><span className="h6 type--uppercase"><p>© 2019 FIAAE inc. All rights reserved</p> </span></a> </li>
                             </ul>
                         </div>
                     </div>
