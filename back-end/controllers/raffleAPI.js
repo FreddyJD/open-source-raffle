@@ -22,8 +22,21 @@ module.exports = (app) => {
 
     app.post('/api/raffle/create', async (req, res) => { 
 
+        console.log(req.body.name);
+        console.log(req.body.email);
+        console.log(req.body.desc);
+
         // convinience variable 
         const rBody = req.body;
+        const email_account = req.body.email
+
+        const getUser = await prisma.sellers({ 
+            where: {
+                email: email_account,
+              }
+        }); 
+        const raffleHostID = getUser[0].id;
+        console.log(raffleHostID);
 
         // We add the raffle into our database 
         const newRaffle = await prisma.createRaffle({ 
@@ -33,6 +46,11 @@ module.exports = (app) => {
             daysLeft: rBody.daysLeft,
             numTickets: rBody.numTickets,
             minTickets: rBody.minTickets,
+            Seller: {
+                connect: {
+                  id: raffleHostID,
+                }
+              },
         });
 
         console.log(`➕ Added a new raffle into DB  ${newRaffle} `)

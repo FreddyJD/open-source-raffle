@@ -196,24 +196,16 @@ export type RaffleOrderByInput =
   | "minTickets_DESC"
   | "active_ASC"
   | "active_DESC"
-  | "winner_ASC"
-  | "winner_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
-
 export type SellerOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
   | "email_ASC"
   | "email_DESC"
-  | "password_ASC"
-  | "password_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -231,13 +223,25 @@ export type UserOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export interface SellerUpdateInput {
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
+
+export interface RaffleUpdateInput {
   name?: String;
-  email?: String;
-  password?: String;
+  picture?: String;
+  desc?: String;
+  daysLeft?: Float;
+  ticketsSold?: Float;
+  numTickets?: Float;
+  minTickets?: Float;
+  active?: Boolean;
+  Seller?: SellerUpdateOneRequiredWithoutRafflesInput;
 }
 
-export interface SellerWhereInput {
+export type RaffleWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface UserWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -280,28 +284,224 @@ export interface SellerWhereInput {
   email_not_starts_with?: String;
   email_ends_with?: String;
   email_not_ends_with?: String;
-  password?: String;
-  password_not?: String;
-  password_in?: String[] | String;
-  password_not_in?: String[] | String;
-  password_lt?: String;
-  password_lte?: String;
-  password_gt?: String;
-  password_gte?: String;
-  password_contains?: String;
-  password_not_contains?: String;
-  password_starts_with?: String;
-  password_not_starts_with?: String;
-  password_ends_with?: String;
-  password_not_ends_with?: String;
-  AND?: SellerWhereInput[] | SellerWhereInput;
-  OR?: SellerWhereInput[] | SellerWhereInput;
-  NOT?: SellerWhereInput[] | SellerWhereInput;
+  AND?: UserWhereInput[] | UserWhereInput;
+  OR?: UserWhereInput[] | UserWhereInput;
+  NOT?: UserWhereInput[] | UserWhereInput;
 }
 
-export type RaffleWhereUniqueInput = AtLeastOne<{
+export interface SellerCreateInput {
+  email: String;
+  Raffles?: RaffleCreateManyWithoutSellerInput;
+}
+
+export interface RaffleUpdateWithoutSellerDataInput {
+  name?: String;
+  picture?: String;
+  desc?: String;
+  daysLeft?: Float;
+  ticketsSold?: Float;
+  numTickets?: Float;
+  minTickets?: Float;
+  active?: Boolean;
+}
+
+export interface SellerUpsertWithoutRafflesInput {
+  update: SellerUpdateWithoutRafflesDataInput;
+  create: SellerCreateWithoutRafflesInput;
+}
+
+export interface RaffleUpdateWithWhereUniqueWithoutSellerInput {
+  where: RaffleWhereUniqueInput;
+  data: RaffleUpdateWithoutSellerDataInput;
+}
+
+export interface UserSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: UserWhereInput;
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+}
+
+export interface RaffleUpdateManyWithoutSellerInput {
+  create?: RaffleCreateWithoutSellerInput[] | RaffleCreateWithoutSellerInput;
+  delete?: RaffleWhereUniqueInput[] | RaffleWhereUniqueInput;
+  connect?: RaffleWhereUniqueInput[] | RaffleWhereUniqueInput;
+  set?: RaffleWhereUniqueInput[] | RaffleWhereUniqueInput;
+  disconnect?: RaffleWhereUniqueInput[] | RaffleWhereUniqueInput;
+  update?:
+    | RaffleUpdateWithWhereUniqueWithoutSellerInput[]
+    | RaffleUpdateWithWhereUniqueWithoutSellerInput;
+  upsert?:
+    | RaffleUpsertWithWhereUniqueWithoutSellerInput[]
+    | RaffleUpsertWithWhereUniqueWithoutSellerInput;
+  deleteMany?: RaffleScalarWhereInput[] | RaffleScalarWhereInput;
+  updateMany?:
+    | RaffleUpdateManyWithWhereNestedInput[]
+    | RaffleUpdateManyWithWhereNestedInput;
+}
+
+export interface RaffleSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: RaffleWhereInput;
+  AND?: RaffleSubscriptionWhereInput[] | RaffleSubscriptionWhereInput;
+  OR?: RaffleSubscriptionWhereInput[] | RaffleSubscriptionWhereInput;
+  NOT?: RaffleSubscriptionWhereInput[] | RaffleSubscriptionWhereInput;
+}
+
+export interface SellerUpdateInput {
+  email?: String;
+  Raffles?: RaffleUpdateManyWithoutSellerInput;
+}
+
+export interface UserUpdateInput {
+  name?: String;
+  email?: String;
+}
+
+export type SellerWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
+
+export interface RaffleUpdateManyDataInput {
+  name?: String;
+  picture?: String;
+  desc?: String;
+  daysLeft?: Float;
+  ticketsSold?: Float;
+  numTickets?: Float;
+  minTickets?: Float;
+  active?: Boolean;
+}
+
+export interface RaffleCreateInput {
+  name: String;
+  picture: String;
+  desc?: String;
+  daysLeft: Float;
+  ticketsSold?: Float;
+  numTickets?: Float;
+  minTickets: Float;
+  active?: Boolean;
+  Seller: SellerCreateOneWithoutRafflesInput;
+}
+
+export interface RaffleScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  picture?: String;
+  picture_not?: String;
+  picture_in?: String[] | String;
+  picture_not_in?: String[] | String;
+  picture_lt?: String;
+  picture_lte?: String;
+  picture_gt?: String;
+  picture_gte?: String;
+  picture_contains?: String;
+  picture_not_contains?: String;
+  picture_starts_with?: String;
+  picture_not_starts_with?: String;
+  picture_ends_with?: String;
+  picture_not_ends_with?: String;
+  desc?: String;
+  desc_not?: String;
+  desc_in?: String[] | String;
+  desc_not_in?: String[] | String;
+  desc_lt?: String;
+  desc_lte?: String;
+  desc_gt?: String;
+  desc_gte?: String;
+  desc_contains?: String;
+  desc_not_contains?: String;
+  desc_starts_with?: String;
+  desc_not_starts_with?: String;
+  desc_ends_with?: String;
+  desc_not_ends_with?: String;
+  daysLeft?: Float;
+  daysLeft_not?: Float;
+  daysLeft_in?: Float[] | Float;
+  daysLeft_not_in?: Float[] | Float;
+  daysLeft_lt?: Float;
+  daysLeft_lte?: Float;
+  daysLeft_gt?: Float;
+  daysLeft_gte?: Float;
+  ticketsSold?: Float;
+  ticketsSold_not?: Float;
+  ticketsSold_in?: Float[] | Float;
+  ticketsSold_not_in?: Float[] | Float;
+  ticketsSold_lt?: Float;
+  ticketsSold_lte?: Float;
+  ticketsSold_gt?: Float;
+  ticketsSold_gte?: Float;
+  numTickets?: Float;
+  numTickets_not?: Float;
+  numTickets_in?: Float[] | Float;
+  numTickets_not_in?: Float[] | Float;
+  numTickets_lt?: Float;
+  numTickets_lte?: Float;
+  numTickets_gt?: Float;
+  numTickets_gte?: Float;
+  minTickets?: Float;
+  minTickets_not?: Float;
+  minTickets_in?: Float[] | Float;
+  minTickets_not_in?: Float[] | Float;
+  minTickets_lt?: Float;
+  minTickets_lte?: Float;
+  minTickets_gt?: Float;
+  minTickets_gte?: Float;
+  active?: Boolean;
+  active_not?: Boolean;
+  AND?: RaffleScalarWhereInput[] | RaffleScalarWhereInput;
+  OR?: RaffleScalarWhereInput[] | RaffleScalarWhereInput;
+  NOT?: RaffleScalarWhereInput[] | RaffleScalarWhereInput;
+}
+
+export interface SellerCreateOneWithoutRafflesInput {
+  create?: SellerCreateWithoutRafflesInput;
+  connect?: SellerWhereUniqueInput;
+}
+
+export interface RaffleUpsertWithWhereUniqueWithoutSellerInput {
+  where: RaffleWhereUniqueInput;
+  update: RaffleUpdateWithoutSellerDataInput;
+  create: RaffleCreateWithoutSellerInput;
+}
+
+export interface SellerCreateWithoutRafflesInput {
+  email: String;
+}
 
 export interface SellerSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
@@ -312,6 +512,50 @@ export interface SellerSubscriptionWhereInput {
   AND?: SellerSubscriptionWhereInput[] | SellerSubscriptionWhereInput;
   OR?: SellerSubscriptionWhereInput[] | SellerSubscriptionWhereInput;
   NOT?: SellerSubscriptionWhereInput[] | SellerSubscriptionWhereInput;
+}
+
+export interface RaffleCreateWithoutSellerInput {
+  name: String;
+  picture: String;
+  desc?: String;
+  daysLeft: Float;
+  ticketsSold?: Float;
+  numTickets?: Float;
+  minTickets: Float;
+  active?: Boolean;
+}
+
+export interface UserCreateInput {
+  name: String;
+  email: String;
+}
+
+export interface SellerUpdateOneRequiredWithoutRafflesInput {
+  create?: SellerCreateWithoutRafflesInput;
+  update?: SellerUpdateWithoutRafflesDataInput;
+  upsert?: SellerUpsertWithoutRafflesInput;
+  connect?: SellerWhereUniqueInput;
+}
+
+export interface RaffleUpdateManyWithWhereNestedInput {
+  where: RaffleScalarWhereInput;
+  data: RaffleUpdateManyDataInput;
+}
+
+export interface RaffleCreateManyWithoutSellerInput {
+  create?: RaffleCreateWithoutSellerInput[] | RaffleCreateWithoutSellerInput;
+  connect?: RaffleWhereUniqueInput[] | RaffleWhereUniqueInput;
+}
+
+export interface RaffleUpdateManyMutationInput {
+  name?: String;
+  picture?: String;
+  desc?: String;
+  daysLeft?: Float;
+  ticketsSold?: Float;
+  numTickets?: Float;
+  minTickets?: Float;
+  active?: Boolean;
 }
 
 export interface RaffleWhereInput {
@@ -405,35 +649,22 @@ export interface RaffleWhereInput {
   minTickets_gte?: Float;
   active?: Boolean;
   active_not?: Boolean;
-  winner?: String;
-  winner_not?: String;
-  winner_in?: String[] | String;
-  winner_not_in?: String[] | String;
-  winner_lt?: String;
-  winner_lte?: String;
-  winner_gt?: String;
-  winner_gte?: String;
-  winner_contains?: String;
-  winner_not_contains?: String;
-  winner_starts_with?: String;
-  winner_not_starts_with?: String;
-  winner_ends_with?: String;
-  winner_not_ends_with?: String;
+  Seller?: SellerWhereInput;
   AND?: RaffleWhereInput[] | RaffleWhereInput;
   OR?: RaffleWhereInput[] | RaffleWhereInput;
   NOT?: RaffleWhereInput[] | RaffleWhereInput;
 }
 
-export interface RaffleUpdateManyMutationInput {
-  name?: String;
-  picture?: String;
-  desc?: String;
-  daysLeft?: Float;
-  ticketsSold?: Float;
-  numTickets?: Float;
-  minTickets?: Float;
-  active?: Boolean;
-  winner?: String;
+export interface SellerUpdateWithoutRafflesDataInput {
+  email?: String;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface SellerUpdateManyMutationInput {
+  email?: String;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -441,35 +672,7 @@ export interface UserUpdateManyMutationInput {
   email?: String;
 }
 
-export interface RaffleUpdateInput {
-  name?: String;
-  picture?: String;
-  desc?: String;
-  daysLeft?: Float;
-  ticketsSold?: Float;
-  numTickets?: Float;
-  minTickets?: Float;
-  active?: Boolean;
-  winner?: String;
-}
-
-export interface UserCreateInput {
-  name: String;
-  email: String;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: UserWhereInput;
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-}
-
-export interface UserWhereInput {
+export interface SellerWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -484,20 +687,6 @@ export interface UserWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
   email?: String;
   email_not?: String;
   email_in?: String[] | String;
@@ -512,61 +701,182 @@ export interface UserWhereInput {
   email_not_starts_with?: String;
   email_ends_with?: String;
   email_not_ends_with?: String;
-  AND?: UserWhereInput[] | UserWhereInput;
-  OR?: UserWhereInput[] | UserWhereInput;
-  NOT?: UserWhereInput[] | UserWhereInput;
-}
-
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface RaffleCreateInput {
-  name: String;
-  picture: String;
-  desc?: String;
-  daysLeft: Float;
-  ticketsSold?: Float;
-  numTickets: Float;
-  minTickets: Float;
-  active?: Boolean;
-  winner?: String;
-}
-
-export type SellerWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface SellerUpdateManyMutationInput {
-  name?: String;
-  email?: String;
-  password?: String;
-}
-
-export interface UserUpdateInput {
-  name?: String;
-  email?: String;
-}
-
-export interface RaffleSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: RaffleWhereInput;
-  AND?: RaffleSubscriptionWhereInput[] | RaffleSubscriptionWhereInput;
-  OR?: RaffleSubscriptionWhereInput[] | RaffleSubscriptionWhereInput;
-  NOT?: RaffleSubscriptionWhereInput[] | RaffleSubscriptionWhereInput;
-}
-
-export interface SellerCreateInput {
-  name: String;
-  email: String;
-  password: String;
+  Raffles_every?: RaffleWhereInput;
+  Raffles_some?: RaffleWhereInput;
+  Raffles_none?: RaffleWhereInput;
+  AND?: SellerWhereInput[] | SellerWhereInput;
+  OR?: SellerWhereInput[] | SellerWhereInput;
+  NOT?: SellerWhereInput[] | SellerWhereInput;
 }
 
 export interface NodeNode {
   id: ID_Output;
+}
+
+export interface UserPreviousValues {
+  id: ID_Output;
+  name: String;
+  email: String;
+}
+
+export interface UserPreviousValuesPromise
+  extends Promise<UserPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  email: () => Promise<String>;
+}
+
+export interface UserPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateRaffle {
+  count: Int;
+}
+
+export interface AggregateRafflePromise
+  extends Promise<AggregateRaffle>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateRaffleSubscription
+  extends Promise<AsyncIterator<AggregateRaffle>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Seller {
+  id: ID_Output;
+  email: String;
+}
+
+export interface SellerPromise extends Promise<Seller>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  Raffles: <T = FragmentableArray<Raffle>>(args?: {
+    where?: RaffleWhereInput;
+    orderBy?: RaffleOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface SellerSubscription
+  extends Promise<AsyncIterator<Seller>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+  Raffles: <T = Promise<AsyncIterator<RaffleSubscription>>>(args?: {
+    where?: RaffleWhereInput;
+    orderBy?: RaffleOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface SellerPreviousValues {
+  id: ID_Output;
+  email: String;
+}
+
+export interface SellerPreviousValuesPromise
+  extends Promise<SellerPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+}
+
+export interface SellerPreviousValuesSubscription
+  extends Promise<AsyncIterator<SellerPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+}
+
+export interface SellerSubscriptionPayload {
+  mutation: MutationType;
+  node: Seller;
+  updatedFields: String[];
+  previousValues: SellerPreviousValues;
+}
+
+export interface SellerSubscriptionPayloadPromise
+  extends Promise<SellerSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = SellerPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SellerPreviousValuesPromise>() => T;
+}
+
+export interface SellerSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SellerSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SellerSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SellerPreviousValuesSubscription>() => T;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface RaffleEdge {
+  node: Raffle;
+  cursor: String;
+}
+
+export interface RaffleEdgePromise extends Promise<RaffleEdge>, Fragmentable {
+  node: <T = RafflePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface RaffleEdgeSubscription
+  extends Promise<AsyncIterator<RaffleEdge>>,
+    Fragmentable {
+  node: <T = RaffleSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateUser {
+  count: Int;
+}
+
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface UserConnection {
@@ -613,107 +923,6 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserPreviousValues {
-  id: ID_Output;
-  name: String;
-  email: String;
-}
-
-export interface UserPreviousValuesPromise
-  extends Promise<UserPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
-}
-
-export interface UserPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-}
-
-export interface RaffleConnection {
-  pageInfo: PageInfo;
-  edges: RaffleEdge[];
-}
-
-export interface RaffleConnectionPromise
-  extends Promise<RaffleConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<RaffleEdge>>() => T;
-  aggregate: <T = AggregateRafflePromise>() => T;
-}
-
-export interface RaffleConnectionSubscription
-  extends Promise<AsyncIterator<RaffleConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<RaffleEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateRaffleSubscription>() => T;
-}
-
-export interface AggregateUser {
-  count: Int;
-}
-
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SellerSubscriptionPayload {
-  mutation: MutationType;
-  node: Seller;
-  updatedFields: String[];
-  previousValues: SellerPreviousValues;
-}
-
-export interface SellerSubscriptionPayloadPromise
-  extends Promise<SellerSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = SellerPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SellerPreviousValuesPromise>() => T;
-}
-
-export interface SellerSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SellerSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SellerSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SellerPreviousValuesSubscription>() => T;
-}
-
 export interface User {
   id: ID_Output;
   name: String;
@@ -734,22 +943,6 @@ export interface UserSubscription
   email: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateSeller {
-  count: Int;
-}
-
-export interface AggregateSellerPromise
-  extends Promise<AggregateSeller>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateSellerSubscription
-  extends Promise<AsyncIterator<AggregateSeller>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface SellerEdge {
   node: Seller;
   cursor: String;
@@ -767,45 +960,6 @@ export interface SellerEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface BatchPayload {
-  count: Long;
-}
-
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface Seller {
-  id: ID_Output;
-  name: String;
-  email: String;
-  password: String;
-}
-
-export interface SellerPromise extends Promise<Seller>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-}
-
-export interface SellerSubscription
-  extends Promise<AsyncIterator<Seller>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-}
-
 export interface RafflePreviousValues {
   id: ID_Output;
   name: String;
@@ -813,10 +967,9 @@ export interface RafflePreviousValues {
   desc?: String;
   daysLeft: Float;
   ticketsSold?: Float;
-  numTickets: Float;
+  numTickets?: Float;
   minTickets: Float;
   active?: Boolean;
-  winner?: String;
 }
 
 export interface RafflePreviousValuesPromise
@@ -831,7 +984,6 @@ export interface RafflePreviousValuesPromise
   numTickets: () => Promise<Float>;
   minTickets: () => Promise<Float>;
   active: () => Promise<Boolean>;
-  winner: () => Promise<String>;
 }
 
 export interface RafflePreviousValuesSubscription
@@ -846,7 +998,6 @@ export interface RafflePreviousValuesSubscription
   numTickets: () => Promise<AsyncIterator<Float>>;
   minTickets: () => Promise<AsyncIterator<Float>>;
   active: () => Promise<AsyncIterator<Boolean>>;
-  winner: () => Promise<AsyncIterator<String>>;
 }
 
 export interface RaffleSubscriptionPayload {
@@ -874,31 +1025,6 @@ export interface RaffleSubscriptionPayloadSubscription
   previousValues: <T = RafflePreviousValuesSubscription>() => T;
 }
 
-export interface SellerPreviousValues {
-  id: ID_Output;
-  name: String;
-  email: String;
-  password: String;
-}
-
-export interface SellerPreviousValuesPromise
-  extends Promise<SellerPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-}
-
-export interface SellerPreviousValuesSubscription
-  extends Promise<AsyncIterator<SellerPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-}
-
 export interface Raffle {
   id: ID_Output;
   name: String;
@@ -906,10 +1032,9 @@ export interface Raffle {
   desc?: String;
   daysLeft: Float;
   ticketsSold?: Float;
-  numTickets: Float;
+  numTickets?: Float;
   minTickets: Float;
   active?: Boolean;
-  winner?: String;
 }
 
 export interface RafflePromise extends Promise<Raffle>, Fragmentable {
@@ -922,7 +1047,7 @@ export interface RafflePromise extends Promise<Raffle>, Fragmentable {
   numTickets: () => Promise<Float>;
   minTickets: () => Promise<Float>;
   active: () => Promise<Boolean>;
-  winner: () => Promise<String>;
+  Seller: <T = SellerPromise>() => T;
 }
 
 export interface RaffleSubscription
@@ -937,21 +1062,63 @@ export interface RaffleSubscription
   numTickets: () => Promise<AsyncIterator<Float>>;
   minTickets: () => Promise<AsyncIterator<Float>>;
   active: () => Promise<AsyncIterator<Boolean>>;
-  winner: () => Promise<AsyncIterator<String>>;
+  Seller: <T = SellerSubscription>() => T;
 }
 
-export interface AggregateRaffle {
+export interface RaffleConnection {
+  pageInfo: PageInfo;
+  edges: RaffleEdge[];
+}
+
+export interface RaffleConnectionPromise
+  extends Promise<RaffleConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<RaffleEdge>>() => T;
+  aggregate: <T = AggregateRafflePromise>() => T;
+}
+
+export interface RaffleConnectionSubscription
+  extends Promise<AsyncIterator<RaffleConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<RaffleEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateRaffleSubscription>() => T;
+}
+
+export interface SellerConnection {
+  pageInfo: PageInfo;
+  edges: SellerEdge[];
+}
+
+export interface SellerConnectionPromise
+  extends Promise<SellerConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<SellerEdge>>() => T;
+  aggregate: <T = AggregateSellerPromise>() => T;
+}
+
+export interface SellerConnectionSubscription
+  extends Promise<AsyncIterator<SellerConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<SellerEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateSellerSubscription>() => T;
+}
+
+export interface AggregateSeller {
   count: Int;
 }
 
-export interface AggregateRafflePromise
-  extends Promise<AggregateRaffle>,
+export interface AggregateSellerPromise
+  extends Promise<AggregateSeller>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateRaffleSubscription
-  extends Promise<AsyncIterator<AggregateRaffle>>,
+export interface AggregateSellerSubscription
+  extends Promise<AsyncIterator<AggregateSeller>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -981,48 +1148,24 @@ export interface UserSubscriptionPayloadSubscription
   previousValues: <T = UserPreviousValuesSubscription>() => T;
 }
 
-export interface SellerConnection {
-  pageInfo: PageInfo;
-  edges: SellerEdge[];
-}
-
-export interface SellerConnectionPromise
-  extends Promise<SellerConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SellerEdge>>() => T;
-  aggregate: <T = AggregateSellerPromise>() => T;
-}
-
-export interface SellerConnectionSubscription
-  extends Promise<AsyncIterator<SellerConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SellerEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSellerSubscription>() => T;
-}
-
-export interface RaffleEdge {
-  node: Raffle;
+export interface UserEdge {
+  node: User;
   cursor: String;
 }
 
-export interface RaffleEdgePromise extends Promise<RaffleEdge>, Fragmentable {
-  node: <T = RafflePromise>() => T;
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface RaffleEdgeSubscription
-  extends Promise<AsyncIterator<RaffleEdge>>,
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
     Fragmentable {
-  node: <T = RaffleSubscription>() => T;
+  node: <T = UserSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
-*/
-export type Int = number;
+export type Long = string;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -1030,7 +1173,10 @@ The `ID` scalar type represents a unique identifier, often used to refetch an ob
 export type ID_Input = string | number;
 export type ID_Output = string;
 
-export type Long = string;
+/*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string;
 
 /*
 The `Boolean` scalar type represents `true` or `false`.
@@ -1043,9 +1189,9 @@ The `Float` scalar type represents signed double-precision fractional values as 
 export type Float = number;
 
 /*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
-export type String = string;
+export type Int = number;
 
 /**
  * Model Metadata

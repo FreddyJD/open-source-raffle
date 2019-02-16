@@ -75,10 +75,10 @@ type Raffle {
   desc: String
   daysLeft: Float!
   ticketsSold: Float
-  numTickets: Float!
+  numTickets: Float
   minTickets: Float!
   active: Boolean
-  winner: String
+  Seller: Seller!
 }
 
 type RaffleConnection {
@@ -93,10 +93,26 @@ input RaffleCreateInput {
   desc: String
   daysLeft: Float!
   ticketsSold: Float
-  numTickets: Float!
+  numTickets: Float
   minTickets: Float!
   active: Boolean
-  winner: String
+  Seller: SellerCreateOneWithoutRafflesInput!
+}
+
+input RaffleCreateManyWithoutSellerInput {
+  create: [RaffleCreateWithoutSellerInput!]
+  connect: [RaffleWhereUniqueInput!]
+}
+
+input RaffleCreateWithoutSellerInput {
+  name: String!
+  picture: String!
+  desc: String
+  daysLeft: Float!
+  ticketsSold: Float
+  numTickets: Float
+  minTickets: Float!
+  active: Boolean
 }
 
 type RaffleEdge {
@@ -123,8 +139,6 @@ enum RaffleOrderByInput {
   minTickets_DESC
   active_ASC
   active_DESC
-  winner_ASC
-  winner_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -138,10 +152,105 @@ type RafflePreviousValues {
   desc: String
   daysLeft: Float!
   ticketsSold: Float
-  numTickets: Float!
+  numTickets: Float
   minTickets: Float!
   active: Boolean
-  winner: String
+}
+
+input RaffleScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  picture: String
+  picture_not: String
+  picture_in: [String!]
+  picture_not_in: [String!]
+  picture_lt: String
+  picture_lte: String
+  picture_gt: String
+  picture_gte: String
+  picture_contains: String
+  picture_not_contains: String
+  picture_starts_with: String
+  picture_not_starts_with: String
+  picture_ends_with: String
+  picture_not_ends_with: String
+  desc: String
+  desc_not: String
+  desc_in: [String!]
+  desc_not_in: [String!]
+  desc_lt: String
+  desc_lte: String
+  desc_gt: String
+  desc_gte: String
+  desc_contains: String
+  desc_not_contains: String
+  desc_starts_with: String
+  desc_not_starts_with: String
+  desc_ends_with: String
+  desc_not_ends_with: String
+  daysLeft: Float
+  daysLeft_not: Float
+  daysLeft_in: [Float!]
+  daysLeft_not_in: [Float!]
+  daysLeft_lt: Float
+  daysLeft_lte: Float
+  daysLeft_gt: Float
+  daysLeft_gte: Float
+  ticketsSold: Float
+  ticketsSold_not: Float
+  ticketsSold_in: [Float!]
+  ticketsSold_not_in: [Float!]
+  ticketsSold_lt: Float
+  ticketsSold_lte: Float
+  ticketsSold_gt: Float
+  ticketsSold_gte: Float
+  numTickets: Float
+  numTickets_not: Float
+  numTickets_in: [Float!]
+  numTickets_not_in: [Float!]
+  numTickets_lt: Float
+  numTickets_lte: Float
+  numTickets_gt: Float
+  numTickets_gte: Float
+  minTickets: Float
+  minTickets_not: Float
+  minTickets_in: [Float!]
+  minTickets_not_in: [Float!]
+  minTickets_lt: Float
+  minTickets_lte: Float
+  minTickets_gt: Float
+  minTickets_gte: Float
+  active: Boolean
+  active_not: Boolean
+  AND: [RaffleScalarWhereInput!]
+  OR: [RaffleScalarWhereInput!]
+  NOT: [RaffleScalarWhereInput!]
 }
 
 type RaffleSubscriptionPayload {
@@ -171,7 +280,18 @@ input RaffleUpdateInput {
   numTickets: Float
   minTickets: Float
   active: Boolean
-  winner: String
+  Seller: SellerUpdateOneRequiredWithoutRafflesInput
+}
+
+input RaffleUpdateManyDataInput {
+  name: String
+  picture: String
+  desc: String
+  daysLeft: Float
+  ticketsSold: Float
+  numTickets: Float
+  minTickets: Float
+  active: Boolean
 }
 
 input RaffleUpdateManyMutationInput {
@@ -183,7 +303,45 @@ input RaffleUpdateManyMutationInput {
   numTickets: Float
   minTickets: Float
   active: Boolean
-  winner: String
+}
+
+input RaffleUpdateManyWithoutSellerInput {
+  create: [RaffleCreateWithoutSellerInput!]
+  delete: [RaffleWhereUniqueInput!]
+  connect: [RaffleWhereUniqueInput!]
+  set: [RaffleWhereUniqueInput!]
+  disconnect: [RaffleWhereUniqueInput!]
+  update: [RaffleUpdateWithWhereUniqueWithoutSellerInput!]
+  upsert: [RaffleUpsertWithWhereUniqueWithoutSellerInput!]
+  deleteMany: [RaffleScalarWhereInput!]
+  updateMany: [RaffleUpdateManyWithWhereNestedInput!]
+}
+
+input RaffleUpdateManyWithWhereNestedInput {
+  where: RaffleScalarWhereInput!
+  data: RaffleUpdateManyDataInput!
+}
+
+input RaffleUpdateWithoutSellerDataInput {
+  name: String
+  picture: String
+  desc: String
+  daysLeft: Float
+  ticketsSold: Float
+  numTickets: Float
+  minTickets: Float
+  active: Boolean
+}
+
+input RaffleUpdateWithWhereUniqueWithoutSellerInput {
+  where: RaffleWhereUniqueInput!
+  data: RaffleUpdateWithoutSellerDataInput!
+}
+
+input RaffleUpsertWithWhereUniqueWithoutSellerInput {
+  where: RaffleWhereUniqueInput!
+  update: RaffleUpdateWithoutSellerDataInput!
+  create: RaffleCreateWithoutSellerInput!
 }
 
 input RaffleWhereInput {
@@ -277,20 +435,7 @@ input RaffleWhereInput {
   minTickets_gte: Float
   active: Boolean
   active_not: Boolean
-  winner: String
-  winner_not: String
-  winner_in: [String!]
-  winner_not_in: [String!]
-  winner_lt: String
-  winner_lte: String
-  winner_gt: String
-  winner_gte: String
-  winner_contains: String
-  winner_not_contains: String
-  winner_starts_with: String
-  winner_not_starts_with: String
-  winner_ends_with: String
-  winner_not_ends_with: String
+  Seller: SellerWhereInput
   AND: [RaffleWhereInput!]
   OR: [RaffleWhereInput!]
   NOT: [RaffleWhereInput!]
@@ -302,9 +447,8 @@ input RaffleWhereUniqueInput {
 
 type Seller {
   id: ID!
-  name: String!
   email: String!
-  password: String!
+  Raffles(where: RaffleWhereInput, orderBy: RaffleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Raffle!]
 }
 
 type SellerConnection {
@@ -314,9 +458,17 @@ type SellerConnection {
 }
 
 input SellerCreateInput {
-  name: String!
   email: String!
-  password: String!
+  Raffles: RaffleCreateManyWithoutSellerInput
+}
+
+input SellerCreateOneWithoutRafflesInput {
+  create: SellerCreateWithoutRafflesInput
+  connect: SellerWhereUniqueInput
+}
+
+input SellerCreateWithoutRafflesInput {
+  email: String!
 }
 
 type SellerEdge {
@@ -327,12 +479,8 @@ type SellerEdge {
 enum SellerOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
   email_ASC
   email_DESC
-  password_ASC
-  password_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -341,9 +489,7 @@ enum SellerOrderByInput {
 
 type SellerPreviousValues {
   id: ID!
-  name: String!
   email: String!
-  password: String!
 }
 
 type SellerSubscriptionPayload {
@@ -365,15 +511,28 @@ input SellerSubscriptionWhereInput {
 }
 
 input SellerUpdateInput {
-  name: String
   email: String
-  password: String
+  Raffles: RaffleUpdateManyWithoutSellerInput
 }
 
 input SellerUpdateManyMutationInput {
-  name: String
   email: String
-  password: String
+}
+
+input SellerUpdateOneRequiredWithoutRafflesInput {
+  create: SellerCreateWithoutRafflesInput
+  update: SellerUpdateWithoutRafflesDataInput
+  upsert: SellerUpsertWithoutRafflesInput
+  connect: SellerWhereUniqueInput
+}
+
+input SellerUpdateWithoutRafflesDataInput {
+  email: String
+}
+
+input SellerUpsertWithoutRafflesInput {
+  update: SellerUpdateWithoutRafflesDataInput!
+  create: SellerCreateWithoutRafflesInput!
 }
 
 input SellerWhereInput {
@@ -391,20 +550,6 @@ input SellerWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
   email: String
   email_not: String
   email_in: [String!]
@@ -419,20 +564,9 @@ input SellerWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
-  password: String
-  password_not: String
-  password_in: [String!]
-  password_not_in: [String!]
-  password_lt: String
-  password_lte: String
-  password_gt: String
-  password_gte: String
-  password_contains: String
-  password_not_contains: String
-  password_starts_with: String
-  password_not_starts_with: String
-  password_ends_with: String
-  password_not_ends_with: String
+  Raffles_every: RaffleWhereInput
+  Raffles_some: RaffleWhereInput
+  Raffles_none: RaffleWhereInput
   AND: [SellerWhereInput!]
   OR: [SellerWhereInput!]
   NOT: [SellerWhereInput!]
