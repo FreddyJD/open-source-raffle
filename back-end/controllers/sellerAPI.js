@@ -27,10 +27,9 @@ module.exports = (app) => {
 
         // if they exist we create a user in our Database
         } else { 
-            const newSeller = await prisma.createSeller({ 
-                email: email, 
-            });
-            res.json(newSeller[0]); 
+            await prisma.createSeller({ email: email });
+            const getUser = await prisma.sellers({ where: { email: email, }});
+            res.json(getUser[0]); 
         }
     });
 
