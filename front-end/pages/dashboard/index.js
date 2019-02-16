@@ -1,15 +1,15 @@
 import SecureTemplate from '../../static/secure-template';
 import PropTypes from 'prop-types';
-import User from '../../component/User';
+import AddRaffles from '../../component/User/AddRaffles';
 
-const Index = ({ loggedInUser }) => (
+const Dashboard = ({ loggedInUser }) => (
   <>
-    <User data={loggedInUser} />
+    <AddRaffles data={loggedInUser} />
   </>
 )
-Index.propTypes = {
+Dashboard.propTypes = {
   loggedInUser: PropTypes.object
 };
 
 
-export default SecureTemplate(Index);
+export default SecureTemplate(Dashboard);
