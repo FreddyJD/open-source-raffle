@@ -5,12 +5,11 @@ type Raffle {
   desc:  String
   daysLeft: Float! 
   ticketsSold: Float
-  numTickets: Float!
+  numTickets: Float
   minTickets: Float! 
   active: Boolean
-  winner: String
-  # ticketPrice: Float! 
-  # participants: [User]
+  Seller: Seller!
+
 }
 
 # TODO : Pull from the user data insted of the raffle table
@@ -24,9 +23,8 @@ type User {
 
 type Seller {
   id: ID! @unique
-  name: String!
   email: String!
-  password: String!
+  Raffles: [Raffle!]!
 }
 
 
