@@ -9,18 +9,18 @@ export default class Footer extends Component {
                     <div className="row">
                         <div className="col-md-12 text-center">
                             <ul className="list-inline">
-                                <li> <a><span className="h6 type--uppercase"><p>© 2019 FIAAE inc. All rights reserved</p> </span></a> </li>
+                                <li> <a><span className="h6 type--uppercase"><p>MIT © 2019 . All rights reserved</p> </span></a> </li>
                             </ul>
                         </div>
                     </div>
                 </div>
         </footer>
-        <script src="./assets/js/jquery-3.1.1.min.js"></script>
-        <script src="./assets/js/flickity.min.js"></script>
-        <script src="./assets/js/lightbox.min.js"></script>
-        <script src="./assets/js/granim.min.js"></script>
-        <script src="./assets/js/jquery.steps.min.js"></script>
-        <script src="./assets/js/scripts.js"></script>
+        <script src="/static/assets/js/jquery-3.1.1.min.js"></script>
+        <script src="/static/assets/js/flickity.min.js"></script>
+        <script src="/static/assets/js/lightbox.min.js"></script>
+        <script src="/static/assets/js/granim.min.js"></script>
+        <script src="/static/assets/js/jquery.steps.min.js"></script>
+        <script src="/static/assets/js/scripts.js"></script>
         </>
     )
   }

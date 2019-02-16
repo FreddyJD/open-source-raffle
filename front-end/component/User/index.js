@@ -12,12 +12,12 @@ export default class User extends Component {
           <div className="row">
             <div className="col-lg-4">
               <div className="boxed boxed--lg boxed--border">
-                <UserData passedData={this.props.data} />
+                <UserData data={this.props.data} />
               </div>
             </div>
             <div className="col-lg-8">
               <div className="boxed boxed--lg boxed--border">
-                <RafflesData />
+                <RafflesData data={this.props.data} />
               </div>
             </div>
           </div>

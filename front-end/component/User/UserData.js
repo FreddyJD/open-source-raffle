@@ -4,22 +4,21 @@ export default class UserData extends Component {
   render() {
     return (
       <>
-        <div class="text-block text-center">
+        <div className="text-block text-center">
           <img
             alt="avatar"
-            src={this.props.passedData.picture}
-            class="image--sm"
+            src={this.props.data.picture}
+            className="image--sm"
           />
 
-          <span class="h5">{this.props.passedData.family_name}, {this.props.passedData.given_name}</span>
+          <span className="h5">{this.props.data.family_name}, {this.props.data.given_name}</span>
           <span>Active Seller Account </span>
-          <span class="label">Seller</span>
         </div>
 
         <hr />
 
-        <div class="text-block">
-          <ul class="menu-vertical">
+        <div className="text-block">
+          <ul className="menu-vertical">
             <li>
               <a>Active Raffles</a>
             </li>
@@ -28,9 +27,6 @@ export default class UserData extends Component {
             </li>
             <li>
               <a> Interactions Stats </a>
-            </li>
-            <li>
-              <a> Edit Account </a>
             </li>
           </ul>
         </div>

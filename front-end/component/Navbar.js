@@ -12,28 +12,62 @@ const Navbar = ({ isLoggedIn }) => (
               <div className="col-md-6 text-left text-left-xs text-left-sm">
                 <div className="bar__module">
                   <ul className="menu-horizontal text-left">
+
                     <li>
                       <Link href="/">
                       <a> Home </a> 
                       </Link>
                     </li>
+
                     <li>
-                      <a> API Docs</a>
-                    </li>
+                    <Link href="/raffles">
+                      <a> Active Raffles </a> 
+                      </Link>
+                      </li>
+
                     <li>
-                      <a> Active Raffles </a>
+                      <Link href="/docs">
+                        <a> API Documentation</a> 
+                      </Link>
                     </li>
+
                     <li>
-                      <a> Github </a>
+                    <Link href="https://github.com/FreddyJD/open-source-raffle/fork">
+
+                    <a>
+                    🔥 Fork 
+                    </a>
+                    </Link>
                     </li>
+
+                  
+                    
                   </ul>
                 </div>
               </div>
+    
               <div className="col-md-6 text-right text-left-xs text-left-sm">
+              
                 <div className="bar__module">
-                  <a className="btn btn--sm type--uppercase">
-                  { isLoggedIn ? ( <Link href="/dashboard">Dashboard</Link> ) : ( <Link href="/login">Login</Link> ) }
+                  { isLoggedIn ? ( 
+                    <Link href="/dashboard">
+
+                  <a className="btn btn--sm type--uppercase none__dec">
+                      Dashboard
                   </a>
+
+                  </Link> ) :
+                   (<Link href="/login">
+                  <a className="btn btn--sm type--uppercase">
+                    <a className="none__dec">
+                    Login
+                    </a> 
+                  </a>
+
+
+
+                    </Link> 
+                    ) }
                 </div>
               </div>
             </div>
@@ -41,6 +75,7 @@ const Navbar = ({ isLoggedIn }) => (
         </nav>
       </div>
     </div>
+
   </>
 )
 
