@@ -1,0 +1,28 @@
+type Raffle {
+  id: ID! @unique
+  name: String!
+  picture: String!
+  desc:  String
+  daysLeft: Float! 
+  ticketsSold: Float
+  numTickets: Float
+  minTickets: Float! 
+  active: Boolean
+  Seller: Seller!
+}
+
+type User {
+  id: ID! @unique
+  name: String!
+  email: String!
+}
+
+type Seller {
+  id: ID! @unique
+  email: String!
+  Raffles: [Raffle!]!
+}
+
+
+
+

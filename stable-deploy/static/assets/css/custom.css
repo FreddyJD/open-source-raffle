@@ -1,0 +1,44 @@
+
+.hosted { 
+    position: relative;
+    color: rgb(221, 221, 221); 
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 10px; 
+    text-decoration: none;
+    width : 300px;
+    margin : auto;
+    top: -27%;
+    transform: rotate(-5deg);
+    border-radius: 5px;
+    background:
+
+	linear-gradient(
+		-45deg,
+		#2b98ff,
+		transparent
+	),
+	linear-gradient(
+		45deg,
+		#863bff,
+		transparent
+	);
+background-blend-mode: multiply;
+}
+
+.none__dec { 
+    text-decoration: none;
+}
+.none__dec:hover { 
+    text-decoration: none;
+}
+
+.special {
+    background-image: url(/static/assets/img/draws/shape1.svg);
+}
+
+/* style="background: url("/static/assets/img/main.png"); opacity: 1;" */
+.background-image-holder { 
+    background: url("/static/assets/img/main.png");
+    opacity: 1;
+}
