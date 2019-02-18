@@ -8,6 +8,9 @@ export default class Steps extends Component {
           <div class="row">
             <div class="col text-center">
               <h1>How it works ? </h1>
+              <p className="lead">
+                  Far far away, behind the word mountains, far from the countries <br/> Vokalia and Consonantia, there live the blind texts
+                </p>
             </div>
           </div>
       

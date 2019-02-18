@@ -9,11 +9,7 @@ type Raffle {
   minTickets: Float! 
   active: Boolean
   Seller: Seller!
-
 }
-
-# TODO : Pull from the user data insted of the raffle table
-# Email notifications  
 
 type User {
   id: ID! @unique

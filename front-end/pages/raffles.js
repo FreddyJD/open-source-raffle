@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Raffle from '../component/Raffles';
+import template from '../static/template';
 
-class index extends Component {
+class raffles extends Component {
     render() {
         return (
             <>
@@ -11,4 +12,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default template(raffles);

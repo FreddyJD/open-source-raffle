@@ -1,41 +1,64 @@
-import React, { Component } from "react";
+import React from 'react';
 
-export default class index extends Component {
+class Raffles extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { data: [] };
+  }
+  componentDidMount(event) {
+    fetch(`http://localhost:8080/api/raffles/all`)
+      .then(res => res.json())
+      .then(json => this.setState({ data: json }));
+  }
+
   render() {
     return (
-      <>
-        <section className="switchable feature-large feature-large-13">
-          <div className="container">
-            <div className="row justify-content-between">
-              <div className="col-md-6">
-                <img
-                  alt="Image"
-                  className="border--round box-shadow-wide"
-                  src="/static/img/inner-3.jpg"
-                />
-              </div>
-              <div className="col-md-6 col-lg-5">
-                <div className="switchable__text">
-                  <h2>This is dummy text</h2>
-                  <p className="lead">
-                    Launching an attractive and scalable website quickly and
-                    affordably is important for modern startups — Stack offers
-                    massive value without looking 'bargain-bin'.
-                  </p>
+      <div>
+        <ul>
+          {this.state.data.map(item => (
+            <li>
+              <hr />
+                <div className="container">
+                  <div className="row">
+                    <div className="col-12 col-md-12">
+                      <h1>{item.name}</h1>
+                      <p>{item.desc} </p>
+                    </div>
 
-                  <div className="text-block">
-                    <h5>Over 140 Styled Pages</h5>
-                    <p>
-                      Jump start your project with Stack's diverse array of
-                      beautiful pre-built templates
-                    </p>
+                    <div className="col-md-2">
+                      <h2>Ends in → </h2>
+                      <h3><mark>{item.daysLeft} Days!</mark> </h3>
+                    </div>
+
+                    <div className="col-md-2">
+                    <h2>Tickets → </h2>
+                      <h3><mark>{item.numTickets} Tickets</mark> </h3>
+                    </div>
+
+                    <div className="col-md-2">
+                    <h2>Total Sold → </h2>
+                      <h3><mark>{item.ticketsSold} Tickets!</mark> </h3>
+                    </div>
+                    <div className="col-md-2">
+                    <h2>
+                    
+                    <a href={`/raffle?id=${item.id}`}>
+                      <button className="btn btn-primary pl-1 pr-1"> Grab a ticket </button>
+                    </a>
+
+                    </h2>
+                    </div>
                   </div>
+                  <br />
+                  
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </>
+            </li>
+          ))}
+        </ul>
+      </div>
+
     );
   }
 }
+
+export default Raffles;
