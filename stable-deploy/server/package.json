@@ -1,0 +1,29 @@
+{
+  "name": "open-source-raffle-backend",
+  "version": "1.0.0",
+  "description": "The open source raffle backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreddyJD/open-source-raffle.git"
+  },
+  "keywords": [
+    "Open",
+    "source",
+    "raffle",
+    "nodejs"
+  ],
+  "author": "github - @freddyjd, @waharrison and @ouggi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FreddyJD/open-source-raffle/issues"
+  },
+  "homepage": "https://github.com/FreddyJD/open-source-raffle#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "prisma-client-lib": "^1.26.4"
+  }
+}
