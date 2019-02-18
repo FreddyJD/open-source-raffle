@@ -2,14 +2,11 @@ const { prisma } = require('../generated/prisma-client')
 
 
 module.exports = (app) => {
-
-
     app.get('/api/raffles/all', async (req, res) => { 
         const allRaffles = await prisma.raffles();
         return res.json(allRaffles);
 
-    })
-
+    });
     app.get('/api/raffles/search/:id', async(req, res) => {
 
         const getRafflebyID = await prisma.raffle({

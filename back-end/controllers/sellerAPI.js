@@ -1,9 +1,3 @@
-// login > check database if it exist 
-// See both passwords (check)
-// If password is correct > JSON format API with all the dashboard info 
-// 📦 TODO HTML : Listen to a Post req => creating a raffle
-
-
 const { prisma } = require('../generated/prisma-client')
 
 

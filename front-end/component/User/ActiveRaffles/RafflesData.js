@@ -21,18 +21,18 @@ export default class RafflesData extends Component {
     <div className="account-tab">
         <h4>All my raffles!</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, cumque doloribus? Totam rem alias repellat nisi tempora autem praesentium distinctio, mollitia sapiente at animi aspernatur, ad dolores cupiditate, ullam voluptates. </p>
-        <hr/> <br/>
+        <hr/>
             <div className="row">
-            {this.state.raffles.map(singleRaffle => (
+            {this.state.raffles.map(item => (
 
-                <div className="col-md-6">
-                    <p> ⭐ {singleRaffle.name}</p>
-                    <hr/>
+                <div className="col-md-12 pd-3 mt-1">
+                    <p> ⭐ {item.name} | <a href={`/raffle?id=${item.id}`}> View → </a></p>
                     <p>
-                        {singleRaffle.desc} <br/>
-                        <bold>Number of Tickets</bold> : {singleRaffle.numTickets}  <br/>
-                        <bold>Total Price set </bold> : {singleRaffle.numTickets}  <br/>
+                        {item.desc} <br/>
+                        <bold>Number of Tickets</bold> : {item.numTickets}  <br/>
+                        <bold>Total Price set </bold> : {item.numTickets}  <br/>
                     </p>
+                    <hr/>
                 </div>
           ))}
             </div>

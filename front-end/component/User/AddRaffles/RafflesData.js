@@ -33,8 +33,10 @@ export default class RafflesData extends Component {
               "minTickets": minTickets,
               "email": this.props.data.email,
             })
-        });
-      }
+        }).then(function() {
+            window.location = '/dashboard/all'
+      });
+    }
 
   render() {
     return (

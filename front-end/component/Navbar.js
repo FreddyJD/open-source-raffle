@@ -14,19 +14,19 @@ const Navbar = ({ isLoggedIn }) => (
                   <ul className="menu-horizontal text-left">
 
                     <li>
-                      <Link href="/">
+                      <Link prefetch href="/">
                       <a> Home </a> 
                       </Link>
                     </li>
 
                     <li>
-                    <Link href="/raffles">
+                    <Link prefetch href="/raffles">
                       <a> Active Raffles </a> 
                       </Link>
                       </li>
 
                     <li>
-                      <Link href="/docs">
+                      <Link prefetch href="/docs">
                         <a> API Documentation</a> 
                       </Link>
                     </li>
